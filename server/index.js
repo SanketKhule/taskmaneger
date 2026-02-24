@@ -12,12 +12,13 @@ app.use("/", (req, res) => {
 
 
 mongoose.connection.once("open", () => {
-    console.log("Connected to MongoDB");
+    console.log(`Connected to MongoDB at ${process.env.NODE_ENV} mode`);
     app.listen(process.env.PORT, () => {
         console.log(`Server is running on port ${process.env.PORT}`);
         console.log(`mode ${process.env.NODE_ENV}`);
         
     })
 })
+
 
 module.exports = app;
