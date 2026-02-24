@@ -10,7 +10,7 @@ app.use("/", (req, res) => {
     res.status(200).json({ message: "Welcome to Task Manager API" });
 })
 
-
+app.use("/api/auth", require("./routes/auth.routes.js"))
 mongoose.connection.once("open", () => {
     console.log(`Connected to MongoDB at ${process.env.NODE_ENV} mode`);
     app.listen(process.env.PORT, () => {
